@@ -45,6 +45,8 @@ app.include_router(analytics_router, prefix=f"{settings.API_PREFIX}/analytics")
 @app.on_event("startup")
 async def startup_db_client():
     db.connect()
+    from backend.seed_db import seed_admin
+    await seed_admin()
 
 @app.on_event("shutdown")
 async def shutdown_db_client():

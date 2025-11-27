@@ -46,9 +46,9 @@ export default function Login() {
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-gray-300 mb-2 font-medium">Email</label>
+                        <label className="block text-gray-300 mb-2 font-medium">Email or ID</label>
                         <input
-                            type="email"
+                            type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full bg-gray-700/50 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-600 transition"

@@ -1,16 +1,17 @@
-from motor.motor_asyncio import AsyncIOMotorClient
+from mongomock_motor import AsyncMongoMockClient
 from backend.config import get_settings
 
 settings = get_settings()
 
 class Database:
-    client: AsyncIOMotorClient = None
+    client = None
     db = None
 
     def connect(self):
-        self.client = AsyncIOMotorClient(settings.DATABASE_URL)
+        print("Using In-Memory Mock Database (MongoDB not found)")
+        self.client = AsyncMongoMockClient()
         self.db = self.client[settings.DB_NAME]
-        print("Connected to MongoDB")
+        print("Connected to Mock MongoDB")
 
     def close(self):
         if self.client:

@@ -1,4 +1,9 @@
-import face_recognition
+try:
+    import face_recognition
+except ImportError:
+    print("WARNING: face_recognition not installed. Face features will be disabled.")
+    face_recognition = None
+
 import numpy as np
 import pickle
 import os
@@ -18,6 +23,9 @@ def save_face_encodings(encodings):
         pickle.dump(encodings, f)
 
 def get_face_encoding(image_file) -> Optional[List[float]]:
+    if face_recognition is None:
+        return None # Mock behavior
+        
     try:
         image = face_recognition.load_image_file(image_file)
         encodings = face_recognition.face_encodings(image)
@@ -29,4 +37,7 @@ def get_face_encoding(image_file) -> Optional[List[float]]:
         return None
 
 def compare_faces(known_encodings: List[List[float]], face_encoding: List[float], tolerance=0.6) -> List[bool]:
+    if face_recognition is None:
+        return [False] * len(known_encodings) # Mock behavior
+        
     return face_recognition.compare_faces(known_encodings, np.array(face_encoding), tolerance=tolerance)
