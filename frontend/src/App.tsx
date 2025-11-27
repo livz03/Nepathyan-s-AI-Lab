@@ -4,6 +4,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import FaceRegister from './pages/FaceRegister';
 import Attendance from './pages/Attendance';
+import AdminPanel from './pages/AdminPanel';
 
 function PrivateRoute({ children }: { children: JSX.Element }) {
     const token = localStorage.getItem('token');
@@ -19,6 +20,11 @@ function App() {
                 <Route path="/dashboard" element={
                     <PrivateRoute>
                         <Dashboard />
+                    </PrivateRoute>
+                } />
+                <Route path="/admin" element={
+                    <PrivateRoute>
+                        <AdminPanel />
                     </PrivateRoute>
                 } />
                 <Route path="/register-face" element={
