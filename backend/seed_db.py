@@ -13,10 +13,10 @@ async def seed_admin():
     # We use 'email' field for ID login as per auth service logic
     admin_user = {
         "_id": "100",
-        "email": "liveshjha@gmail.com", 
-        "name": "Admin Livesh Jha",
+        "email": "100", 
+        "name": "Admin User",
         "role": "admin",
-        "hashed_password": get_password_hash("Livesh Jha@123"),
+        "hashed_password": get_password_hash("1111"),
         "is_active": True
     }
     
