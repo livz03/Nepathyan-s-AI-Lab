@@ -1,0 +1,11 @@
+{
+    "name": "cortex-ai-attendance",
+    "version": "1.0.0",
+    "description": "AI Attendance System",
+    "scripts": {
+        "start:backend": "uvicorn backend.main:app --reload",
+        "start:frontend": "cd frontend && npm run dev"
+    },
+    "author": "Nepathiyan",
+    "license": "ISC"
+}
