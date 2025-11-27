@@ -33,6 +33,7 @@ from backend.modules.face.routes import router as face_router
 from backend.modules.attendance.routes import router as attendance_router
 
 from backend.modules.ai.routes import router as ai_router
+from backend.modules.ai.agent_routes import router as agent_router
 from backend.modules.analytics.routes import router as analytics_router
 from backend.modules.admin.routes import router as admin_router
 from backend.modules.advanced.routes import router as advanced_router
@@ -42,6 +43,7 @@ app.include_router(face_router, prefix=f"{settings.API_PREFIX}/face")
 app.include_router(attendance_router, prefix=f"{settings.API_PREFIX}/attendance")
 
 app.include_router(ai_router, prefix=f"{settings.API_PREFIX}/ai")
+app.include_router(agent_router, prefix=f"{settings.API_PREFIX}/agents")
 app.include_router(analytics_router, prefix=f"{settings.API_PREFIX}/analytics")
 app.include_router(admin_router, prefix=f"{settings.API_PREFIX}/admin")
 app.include_router(advanced_router, prefix=f"{settings.API_PREFIX}/advanced")
